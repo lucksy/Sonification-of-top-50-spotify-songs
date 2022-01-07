@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audio version="1.0" timeUnit="ms" gain="0">
+
+	<Chain id="Energy">
+		<var name="playbackRate" default="1" mapin="0.1,2"></var>
+		<var name="brightness" default="10000" mapin="50,10000" curve="3"></var>
+		<var name="volume" default="0" mapin="-30, 0" convert="dB->power"></var>	
+
+		<AudioBufferSourceNode src="audio/energy.mp3" loop="true" playbackRate="$playbackRate"></AudioBufferSourceNode>
+		<BiquadFilterNode type="lowpass" frequency="$brightness"></BiquadFilterNode>
+		<GainNode gain="$volume"></GainNode>
+	</Chain>
+
+	<Chain id="Acousticness">
+		<var name="playbackRate" default="1" mapin="0.1,2"></var>
+		<var name="brightness" default="10000" mapin="50,10000" curve="3"></var>
+		<var name="volume" default="0" mapin="-30, 0" convert="dB->power"></var>	
+
+		<AudioBufferSourceNode src="audio/acousticness.mp3" loop="true" playbackRate="$playbackRate"></AudioBufferSourceNode>
+		<BiquadFilterNode type="lowpass" frequency="$brightness"></BiquadFilterNode>
+		<GainNode gain="$volume"></GainNode>
+	</Chain>
+
+	<Chain id="Tempo">
+		<var name="playbackRate" default="1" mapin="0.1,2"></var>
+		<var name="brightness" default="10000" mapin="50,10000" curve="3"></var>
+		<var name="volume" default="0" mapin="-30, 0" convert="dB->power"></var>	
+
+		<AudioBufferSourceNode src="audio/tempo.mp3" loop="true" playbackRate="$playbackRate"></AudioBufferSourceNode>
+		<BiquadFilterNode type="lowpass" frequency="$brightness"></BiquadFilterNode>
+		<GainNode gain="$volume"></GainNode>
+	</Chain>
+
+
+	<Chain id="Valence">
+		<var name="playbackRate" default="1" mapin="0.1,2"></var>
+		<var name="brightness" default="10000" mapin="50,10000" curve="3"></var>
+		<var name="volume" default="0" mapin="-30, 0" convert="dB->power"></var>	
+
+		<AudioBufferSourceNode src="audio/valence.mp3" loop="true" playbackRate="$playbackRate"></AudioBufferSourceNode>
+		<BiquadFilterNode type="lowpass" frequency="$brightness"></BiquadFilterNode>
+		<GainNode gain="$volume"></GainNode>
+	</Chain>
+	
+
+
+</Audio>

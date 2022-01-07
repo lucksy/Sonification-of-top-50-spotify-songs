@@ -1,0 +1,114 @@
+{
+    "version": 1,
+    "duration": 100,
+    "variableMappings": [
+        {
+            "name": "acousticness",
+            "id": 0,
+            "rowID": "1",
+            "gain": 0.81,
+            "pan": 0,
+            "state": true,
+            "color": "#D4E09B",
+            "audioObjectID": 15,
+            "mappings": [
+                {
+                    "parameterID": 19,
+                    "inputLow": 0.272,
+                    "inputHigh": 0.925,
+                    "outputLow": -22.2,
+                    "outputHigh": -7.2,
+                    "relInputLow": 0.2901108799622536,
+                    "relInputHigh": 0.9903489394556801,
+                    "invert": false,
+                    "state": true,
+                    "id": 9
+                }
+            ]
+        },
+        {
+            "name": "energy",
+            "id": 1,
+            "rowID": "0",
+            "gain": 0.0961,
+            "pan": 0.1,
+            "state": true,
+            "color": "#F6F4D2",
+            "audioObjectID": 2,
+            "mappings": [
+                {
+                    "parameterID": 5,
+                    "inputLow": 0.338,
+                    "inputHigh": 0.836,
+                    "outputLow": 2438,
+                    "outputHigh": 10000,
+                    "relInputLow": 0.1793650793650794,
+                    "relInputHigh": 0.9698412698412698,
+                    "invert": false,
+                    "state": true,
+                    "id": 1
+                },
+                {
+                    "parameterID": 6,
+                    "inputLow": 0.326,
+                    "inputHigh": 0.855,
+                    "outputLow": -30,
+                    "outputHigh": 0,
+                    "relInputLow": 0.16031746031746033,
+                    "relInputHigh": 1,
+                    "invert": false,
+                    "state": true,
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "name": "valence",
+            "id": 2,
+            "rowID": "2",
+            "gain": 0.24009999999999998,
+            "pan": -5,
+            "state": true,
+            "color": "#F19C79",
+            "audioObjectID": 41,
+            "mappings": [
+                {
+                    "parameterID": 45,
+                    "inputLow": 0.182,
+                    "inputHigh": 0.847,
+                    "outputLow": -30,
+                    "outputHigh": 0,
+                    "relInputLow": 0.14054366685945632,
+                    "relInputHigh": 0.9097744360902255,
+                    "invert": false,
+                    "state": true,
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "name": "tempo",
+            "id": 3,
+            "rowID": "3",
+            "gain": 0.24009999999999998,
+            "pan": 4.8,
+            "state": true,
+            "color": "#A44A3F",
+            "audioObjectID": 28,
+            "mappings": [
+                {
+                    "parameterID": 32,
+                    "inputLow": 89,
+                    "inputHigh": 179,
+                    "outputLow": -30,
+                    "outputHigh": 0,
+                    "relInputLow": 0.1265896840772639,
+                    "relInputHigh": 0.9897665586097097,
+                    "invert": false,
+                    "state": true,
+                    "id": 3
+                }
+            ]
+        }
+    ]
+}

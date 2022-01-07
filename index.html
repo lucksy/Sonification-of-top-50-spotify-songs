@@ -1,0 +1,178 @@
+<!doctype html>
+
+
+<!--
+
+<h2>Click and slide to play</h2>
+<ul>
+	<li>Pointer relative X position controls pitch</li>
+	<li>Pointer relative Y position controls cutoff frequency of biquad filter</li>
+</ul>
+<p>WebAudioXML is a javascript library that makes it possible to create
+	Web Audio applications using XML syntax. It is a PhD research project by
+	Hans Lindetorp. Please follow me on
+	<a href="https://hans.arapoviclindetorp.se">https://hans.arapoviclindetorp.se</a> and
+	<a href="https://www.facebook.com/hanslindetorpresearch/">https://www.facebook.com/hanslindetorpresearch/</a>
+</p>
+
+-->
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<title>Sonification 1</title>
+		<script src="script/NormalDistribution.js"></script>
+		<script src="script/max.size.js"></script>
+		<script src="script/JSONCrush.min.js"></script>
+
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/multirange.css" />
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	</head>
+
+
+	<body>
+		<div id="container">
+			<h1>Sonification of Top 50 Spotify Songs - 2019</h1>
+
+			<div id="topButtons" class="hide">
+			<button id="newBtn">NEW</button>
+			<button id="openBtn">OPEN</button>
+			<button id="saveBtn">SAVE</button>
+			<button id="shareBtn">SHARE</button>
+			<!--button id="statisticsBtn">STATISTICS</button-->
+			<button id="displayModeBtn">Display Mode</button>
+			</div>
+			
+
+			<div id="visual-output"><canvas width="1000" height="200"></canvas>
+				<span id="visual-shadow"></span>
+			<span id="slider_value"></span>
+			<span id="labels" class="hide">
+				<ul>
+					<li class="acousticness">Acousticness</li>
+					<li class="energy">Energy</li>
+					<li class="volume">Volume</li>
+					<li class="tempo">Tempo</li>
+				</ul>
+			</span>
+			</div>
+			<input type="range" min="0" max="1" value="0" step="0.001" class="slider" id="scrub" />
+			<!-- <button onclick="javascript: webAudioXML.init()">INIT AUDIO</button> -->
+			<button id="reverseBtn">REVERSE</button>
+			<button id="stopBtn">STOP</button>
+			<button id="playBtn">PLAY</button>
+			<button id="showController">SHOW CONTROLLERS</button>
+			<span id="meta" class=" hide">
+			<input id="duration" value="60" /> s.
+			<span id="input-label">Data Range:</span>
+			<span id="output-label">Parameter Range:</span>
+			</span>
+			
+
+
+
+
+			<div id="variables" class="hide"></div>
+
+			<div id="instruction" class="hide">
+				<h2>Sonification of Top 50 Spotify Songs</h2>
+				<p>From using <a href="https://github.com/hanslindetorp/SonificationToolkit">Sonification Toolkit</a> by Hans Lindetorp"></p>
+			</div>
+
+			<div id="data-input-container" class="data-container">
+				<button class="loadBtn">OK</button>
+				<button class="closeBtn">Cancel</button>
+				<textarea></textarea>
+			</div>
+			<div id="data-output-container" class="data-container">
+				<button class="closeBtn">X</button>
+				<textarea id="outputText"></textarea>
+			</div>
+		</div>
+
+		<script src="script/multirange.js"></script>
+
+		<script src="script/WebAudioXML.js" data-source="audio.xml"></script>
+		<script src="script/main.js" data-source="configuration.js"></script>
+
+		<style type="text/css">
+			h1 { opacity: 0; }
+			.hide { opacity: 0; }
+			.show { opacity: 1; }
+
+			#visual-output { position: relative; }
+
+			#slider_value { position: absolute;
+    right: -25px;
+    top: -25px;
+    background: #222;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: #FFF;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid grey; }
+			#visual-shadow {
+				display: block; content: "";
+				width: 100%;
+				height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+background: url("shadow.png") no-repeat top left;
+
+			}
+
+			#labels {position: absolute;
+    right: -160px;
+    top: 30px;
+    opacity: 1;
+			}
+			#labels  ul {
+				
+			}
+			#labels  ul li {
+				margin: 5px 10px; padding: 10px; background: red; color: #000;
+			}
+			#labels  ul li.acousticness { background: rgb(212, 224, 155); }
+			#labels  ul li.energy { background: rgb(246, 244, 210); }
+			#labels  ul li.volume { background: rgb(241, 156, 121); }
+			#labels  ul li.tempo { background: rgb(164, 74, 63); }
+		</style>
+
+		<script type="text/javascript">
+			$( document ).on("click", "#showController", function () {
+			    $("#variables").animate({
+				}, 1000, function() {
+					$('#variables').toggleClass('show hide');
+					$('#instruction').toggleClass('show hide');
+					$('#topButtons').toggleClass('show hide');
+					$('#meta').toggleClass('show hide');
+					$('h1').toggleClass('show hide');
+				});
+				
+			});
+
+
+
+var intervalId = window.setInterval(function(){
+			   $('#slider_value').html( Math.round(($('#scrub').val()*1000)/20 ));
+			   console.log(($('#scrub').val()*10)+"%");
+			   $('#visual-shadow').css('width', (100-$('#scrub').val()*100)+"%" );
+			   
+}, 500);
+
+
+// clearInterval(intervalId)
+
+
+		</script>
+
+	</body>
+</html>
